@@ -5,13 +5,13 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION \
-        | docker login --username AWS --password-stdin 123456789012.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+        | docker login --username AWS --password-stdin 291878985540.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
   build:
     commands:
       - echo "Building the Docker image..."
       - docker build -t my-sagemaker-image .
-      - docker tag my-sagemaker-image:latest 123456789012.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/my-sagemaker-image:latest
+      - docker tag my-sagemaker-image:latest 291878985540.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/my-sagemaker-image:latest
   post_build:
     commands:
       - echo "Pushing the Docker image to ECR..."
-      - docker push 123456789012.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/my-sagemaker-image:latest
+      - docker push 291878985540.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/my-sagemaker-image:latest
