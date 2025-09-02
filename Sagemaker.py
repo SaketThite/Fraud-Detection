@@ -6,8 +6,8 @@ sess = sagemaker.Session()
 role = sagemaker.get_execution_role()
 
 # Define the location of your S3 model artifacts and ECR container image
-model_data = f"s3://YOUR_BUCKET_NAME/models/your-model-name/model.tar.gz"
-image_uri = f"{ACCOUNT_ID}.dkr.ecr.{REGION}.amazonaws.com/{REPOSITORY_NAME}:latest"
+model_data = f"s3://payment-model-for-fraud/archive/payment_fraud_model.tar.gz"
+image_uri = f"291878985540.dkr.ecr.us-east-1.amazonaws.com/payment-fraud-detector-model:latest"
 
 # Create a SageMaker model object
 huggingface_model = HuggingFaceModel(
