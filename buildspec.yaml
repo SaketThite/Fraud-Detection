@@ -5,6 +5,8 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 291878985540.dkr.ecr.us-east-1.amazonaws.com
+      # Login to the AWS DLC/HF registry (where you PULL the base image)
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 763104351884.dkr.ecr.us-east-1.amazonaws.com
   build:
     commands:
       - echo "Building the Docker image..."
@@ -13,4 +15,4 @@ phases:
   post_build:
     commands:
       - echo "Pushing the Docker image to ECR..."
-      - docker push 291878985540.dkr.ecr.us.east-1.amazonaws.com/fraud-detection-model-image:latest
+      - docker push 291878985540.dkr.ecr.us-east-1.amazonaws.com/fraud-detection-model-image:latest
