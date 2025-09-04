@@ -11,8 +11,8 @@ phases:
     commands:
       - echo "Building the Docker image..."
       - docker build -t fraud-detection-model-image .
-      - docker tag fraud-detection-model-image:latest 291878985540.dkr.ecr.us-east-1.amazonaws.com/fraud-detection-model-image:latest
+      - docker tag fraud-detection-model-image:latest 291878985540.dkr.ecr.us-east-1.amazonaws.com/payment-fraud-detector-model:latest
   post_build:
     commands:
       - echo "Pushing the Docker image to ECR..."
-      - docker push 291878985540.dkr.ecr.us-east-1.amazonaws.com/fraud-detection-model-image:latest
+      - docker push 291878985540.dkr.ecr.us-east-1.amazonaws.com/payment-fraud-detector-model:latest
